@@ -23,6 +23,8 @@
       video.srcObject && zg.destroyStream(video.srcObject)
       zg.createStream().then(stream => {
         video.srcObject = stream
+        const {label, enabled, muted,readyState} = video.srcObject.getVideoTracks()[0]
+        alert(`${label+enabled+ muted+readyState}`);
       })
     }
     getMedia.onclick = () => {
