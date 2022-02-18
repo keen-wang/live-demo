@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.13.0</title>
+</head>
+
+<body>
+  <span>2.13.0</span>
+  <video id="preview" autoplay width="640" height="480" controls muted></video>
+  <button id="button">预览</button>
+  <script src="./ZegoExpressWebRTC-2.13.0.js"></script>
+  <script>
+    const zg = new ZegoExpressEngine(1739272706, "wss://wssliveroom-test.zego.im/ws")
+    const video = document.querySelector("#preview")
+    const button = document.querySelector("#button")
+    button.onclick = () => {
+      video.srcObject&&zg.destroyStream(video.srcObject)
+      zg.createStream().then(stream => {
+        video.srcObject = stream
+      })
+    }
+  </script>
+</body>
+
+</html>
