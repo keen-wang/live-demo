@@ -6,7 +6,9 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "cp": "cp -r ../../WorkspaceWeb/websdk-test-demo/dist/  ./docs"
+    "cp1": "cp -r ../../WorkspaceWeb/websdk-test-demo/dist/  ./docs",
+    "rm": "rm ./docs/**/*",
+    "cp": "npm run rm && npm run cp1"
   },
   "dependencies": {
     "axios": "^0.19.1",
